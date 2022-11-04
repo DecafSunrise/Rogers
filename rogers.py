@@ -11,17 +11,18 @@
 - https://www.vultr.com/docs/how-to-run-a-python-discord-bot-on-a-docker-application/
 """
 
+import os
 import random
 import discord
 from discord.ext import commands
-from secret_stuff import rogers_token
-
+from dotenv import load_dotenv
+load_dotenv()
 from insult import *
 
 # intents = discord.Intents(messages=True, members=True)
 intents = discord.Intents.all()
 
-TOKEN = rogers_token
+TOKEN = os.getenv('TOKEN')
 # GUILD = os.getenv('DISCORD_GUILD')
 
 bot = commands.Bot(command_prefix='!', intents=intents)
